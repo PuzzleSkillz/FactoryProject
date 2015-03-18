@@ -1,0 +1,797 @@
+  [1m[36m (129.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (98.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateAuthors (20150318060036)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150318060036"]]
+  [1m[35m (102.7ms)[0m  commit transaction
+Migrating to CreatePosts (20150318060259)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150318060259"]]
+  [1m[35m (129.5ms)[0m  commit transaction
+Migrating to CreateTags (20150318060458)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150318060458"]]
+  [1m[35m (118.6ms)[0m  commit transaction
+Migrating to CreateComments (20150318060537)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150318060537"]]
+  [1m[35m (129.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[35mAuthor Load (0.4ms)[0m  SELECT "authors".* FROM "authors"
+  [1m[36mAuthor Load (1.5ms)[0m  [1mSELECT "authors".* FROM "authors"[0m
+  [1m[35mAuthor Load (0.3ms)[0m  SELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (138.8ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (99.5ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (111.4ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.4ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (130.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (99.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (100.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (112.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (125.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (112.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (98.1ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (144.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.0ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (111.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (112.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (111.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (190.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (123.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (112.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36m (142.0ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (99.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.3ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (122.5ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (110.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (121.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (144.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (146.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (134.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (134.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (121.1ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (124.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (145.5ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.7ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (122.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (122.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (123.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (136.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (145.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (118.3ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (122.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (102.7ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.1ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (110.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (111.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (111.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (112.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (101.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (101.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (100.3ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (99.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (134.0ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.1ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (267.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (111.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (122.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (136.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (156.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (122.6ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.4ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.6ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.8ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (117.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (133.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (122.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (159.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (112.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (101.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (109.8ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.1ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (111.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (145.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (167.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (112.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (112.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (112.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (102.9ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (133.7ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.4ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (119.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (110.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (124.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (123.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (123.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (111.3ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (121.6ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (111.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (99.9ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (102.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (99.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (112.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060537')[0m
+  [1m[35m (123.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060259')
+  [1m[36m (134.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150318073946)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150318073946"]]
+  [1m[36m (128.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAuthor Load (1.2ms)[0m  [1mSELECT "authors".* FROM "authors"[0m
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-18 11:19:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (1.4ms)
+Completed 200 OK in 12ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/User" for 127.0.0.1 at 2015-03-18 11:19:12 +0300
+
+ActionController::RoutingError (No route matches [GET] "/User"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/puzzleskillz/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/puzzleskillz/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/puzzleskillz/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.1ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (18.8ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.1ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (51.0ms)
+
+
+Started GET "/Users" for 127.0.0.1 at 2015-03-18 11:19:29 +0300
+
+ActionController::RoutingError (No route matches [GET] "/Users"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/puzzleskillz/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/puzzleskillz/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/puzzleskillz/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (14.1ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (11.6ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (4.5ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (28.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-18 11:19:36 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/puzzleskillz/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (152.4ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (102.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (111.3ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.5ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (168.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (184.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (123.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (122.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (125.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (123.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (112.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (99.7ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (110.9ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (99.9ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (101.6ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (133.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (110.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (133.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (134.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (112.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (101.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (113.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" ASC LIMIT 1[0m
+  [1m[36m (121.7ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (122.2ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.2ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (107.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (99.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (113.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (101.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (101.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (101.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (101.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (98.3ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (99.9ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (135.1ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (133.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (111.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (112.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (112.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (113.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (104.6ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (99.9ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (99.9ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (111.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (130.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (110.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (111.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (112.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (125.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (134.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (112.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (98.1ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.3ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.6ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (123.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (110.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (100.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (100.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (100.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (101.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (101.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "ut"], ["created_at", "2015-03-18 08:35:32.875491"], ["updated_at", "2015-03-18 08:35:32.875491"]]
+  [1m[35m (96.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "ea"], ["created_at", "2015-03-18 08:35:32.976264"], ["updated_at", "2015-03-18 08:35:32.976264"]]
+  [1m[36m (120.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "provident"], ["created_at", "2015-03-18 08:35:33.101379"], ["updated_at", "2015-03-18 08:35:33.101379"]]
+  [1m[35m (107.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "beatae"], ["created_at", "2015-03-18 08:35:33.213630"], ["updated_at", "2015-03-18 08:35:33.213630"]]
+  [1m[36m (197.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "quae"], ["created_at", "2015-03-18 08:35:33.414475"], ["updated_at", "2015-03-18 08:35:33.414475"]]
+  [1m[35m (153.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "aperiam"], ["created_at", "2015-03-18 08:35:33.571535"], ["updated_at", "2015-03-18 08:35:33.571535"]]
+  [1m[36m (154.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "qui"], ["created_at", "2015-03-18 08:35:33.729405"], ["updated_at", "2015-03-18 08:35:33.729405"]]
+  [1m[35m (119.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "reiciendis"], ["created_at", "2015-03-18 08:35:33.853039"], ["updated_at", "2015-03-18 08:35:33.853039"]]
+  [1m[36m (119.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "dolores"], ["created_at", "2015-03-18 08:35:33.976673"], ["updated_at", "2015-03-18 08:35:33.976673"]]
+  [1m[35m (119.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "rerum"], ["created_at", "2015-03-18 08:35:34.100630"], ["updated_at", "2015-03-18 08:35:34.100630"]]
+  [1m[36m (121.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "rerum"], ["created_at", "2015-03-18 08:35:34.225992"], ["updated_at", "2015-03-18 08:35:34.225992"]]
+  [1m[35m (141.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "mollitia"], ["created_at", "2015-03-18 08:35:34.371967"], ["updated_at", "2015-03-18 08:35:34.371967"]]
+  [1m[36m (152.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "quasi"], ["created_at", "2015-03-18 08:35:34.528790"], ["updated_at", "2015-03-18 08:35:34.528790"]]
+  [1m[35m (141.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "consequatur"], ["created_at", "2015-03-18 08:35:34.674915"], ["updated_at", "2015-03-18 08:35:34.674915"]]
+  [1m[36m (130.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "magni"], ["created_at", "2015-03-18 08:35:34.809599"], ["updated_at", "2015-03-18 08:35:34.809599"]]
+  [1m[35m (119.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "enim"], ["created_at", "2015-03-18 08:35:34.933268"], ["updated_at", "2015-03-18 08:35:34.933268"]]
+  [1m[36m (119.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "aut"], ["created_at", "2015-03-18 08:35:35.056976"], ["updated_at", "2015-03-18 08:35:35.056976"]]
+  [1m[35m (121.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "est"], ["created_at", "2015-03-18 08:35:35.182519"], ["updated_at", "2015-03-18 08:35:35.182519"]]
+  [1m[36m (141.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "nam"], ["created_at", "2015-03-18 08:35:35.328536"], ["updated_at", "2015-03-18 08:35:35.328536"]]
+  [1m[35m (141.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "praesentium"], ["created_at", "2015-03-18 08:35:35.474217"], ["updated_at", "2015-03-18 08:35:35.474217"]]
+  [1m[36m (152.7ms)[0m  [1mcommit transaction[0m
+  [1m[36m (376.2ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (124.8ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (122.3ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (155.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (164.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (110.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (111.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (112.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (112.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (124.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (120.7ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (110.9ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (133.3ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (122.2ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (112.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (111.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (112.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (134.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (101.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (134.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "voluptatem"], ["created_at", "2015-03-18 08:36:07.552811"], ["updated_at", "2015-03-18 08:36:07.552811"]]
+  [1m[35m (129.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "ad"], ["created_at", "2015-03-18 08:36:07.686756"], ["updated_at", "2015-03-18 08:36:07.686756"]]
+  [1m[36m (130.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "aut"], ["created_at", "2015-03-18 08:36:07.821093"], ["updated_at", "2015-03-18 08:36:07.821093"]]
+  [1m[35m (119.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "adipisci"], ["created_at", "2015-03-18 08:36:07.944555"], ["updated_at", "2015-03-18 08:36:07.944555"]]
+  [1m[36m (120.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "minima"], ["created_at", "2015-03-18 08:36:08.069626"], ["updated_at", "2015-03-18 08:36:08.069626"]]
+  [1m[35m (108.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "reiciendis"], ["created_at", "2015-03-18 08:36:08.182229"], ["updated_at", "2015-03-18 08:36:08.182229"]]
+  [1m[36m (119.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "sit"], ["created_at", "2015-03-18 08:36:08.305646"], ["updated_at", "2015-03-18 08:36:08.305646"]]
+  [1m[35m (119.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "earum"], ["created_at", "2015-03-18 08:36:08.429105"], ["updated_at", "2015-03-18 08:36:08.429105"]]
+  [1m[36m (119.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "nostrum"], ["created_at", "2015-03-18 08:36:08.552704"], ["updated_at", "2015-03-18 08:36:08.552704"]]
+  [1m[35m (119.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "mollitia"], ["created_at", "2015-03-18 08:36:08.675963"], ["updated_at", "2015-03-18 08:36:08.675963"]]
+  [1m[36m (141.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "omnis"], ["created_at", "2015-03-18 08:36:08.821779"], ["updated_at", "2015-03-18 08:36:08.821779"]]
+  [1m[35m (141.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "consectetur"], ["created_at", "2015-03-18 08:36:08.966426"], ["updated_at", "2015-03-18 08:36:08.966426"]]
+  [1m[36m (121.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "dolorem"], ["created_at", "2015-03-18 08:36:09.090966"], ["updated_at", "2015-03-18 08:36:09.090966"]]
+  [1m[35m (120.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "neque"], ["created_at", "2015-03-18 08:36:09.216151"], ["updated_at", "2015-03-18 08:36:09.216151"]]
+  [1m[36m (141.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "velit"], ["created_at", "2015-03-18 08:36:09.362119"], ["updated_at", "2015-03-18 08:36:09.362119"]]
+  [1m[35m (119.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "fugiat"], ["created_at", "2015-03-18 08:36:09.485588"], ["updated_at", "2015-03-18 08:36:09.485588"]]
+  [1m[36m (130.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "voluptas"], ["created_at", "2015-03-18 08:36:09.620351"], ["updated_at", "2015-03-18 08:36:09.620351"]]
+  [1m[35m (175.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "dignissimos"], ["created_at", "2015-03-18 08:36:09.799929"], ["updated_at", "2015-03-18 08:36:09.799929"]]
+  [1m[36m (152.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "enim"], ["created_at", "2015-03-18 08:36:09.956708"], ["updated_at", "2015-03-18 08:36:09.956708"]]
+  [1m[35m (130.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "et"], ["created_at", "2015-03-18 08:36:10.091204"], ["updated_at", "2015-03-18 08:36:10.091204"]]
+  [1m[36m (129.9ms)[0m  [1mcommit transaction[0m
+  [1m[36m (99.3ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.4ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (124.0ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (133.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (141.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (155.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (133.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (123.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (145.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (125.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (134.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (132.1ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (155.5ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (156.5ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.5ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (101.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (111.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (112.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (134.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (101.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "veritatis"], ["created_at", "2015-03-18 08:36:34.867346"], ["updated_at", "2015-03-18 08:36:34.867346"]]
+  [1m[35m (118.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "maiores"], ["created_at", "2015-03-18 08:36:34.989322"], ["updated_at", "2015-03-18 08:36:34.989322"]]
+  [1m[36m (121.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "ut"], ["created_at", "2015-03-18 08:36:35.113693"], ["updated_at", "2015-03-18 08:36:35.113693"]]
+  [1m[35m (98.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "porro"], ["created_at", "2015-03-18 08:36:35.216684"], ["updated_at", "2015-03-18 08:36:35.216684"]]
+  [1m[36m (119.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "quam"], ["created_at", "2015-03-18 08:36:35.340233"], ["updated_at", "2015-03-18 08:36:35.340233"]]
+  [1m[35m (107.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "ea"], ["created_at", "2015-03-18 08:36:35.452471"], ["updated_at", "2015-03-18 08:36:35.452471"]]
+  [1m[36m (108.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "enim"], ["created_at", "2015-03-18 08:36:35.564722"], ["updated_at", "2015-03-18 08:36:35.564722"]]
+  [1m[35m (108.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "minima"], ["created_at", "2015-03-18 08:36:35.677272"], ["updated_at", "2015-03-18 08:36:35.677272"]]
+  [1m[36m (96.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "sunt"], ["created_at", "2015-03-18 08:36:35.778422"], ["updated_at", "2015-03-18 08:36:35.778422"]]
+  [1m[35m (119.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "saepe"], ["created_at", "2015-03-18 08:36:35.902023"], ["updated_at", "2015-03-18 08:36:35.902023"]]
+  [1m[36m (130.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "perferendis"], ["created_at", "2015-03-18 08:36:36.036576"], ["updated_at", "2015-03-18 08:36:36.036576"]]
+  [1m[35m (119.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "unde"], ["created_at", "2015-03-18 08:36:36.160193"], ["updated_at", "2015-03-18 08:36:36.160193"]]
+  [1m[36m (98.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "deleniti"], ["created_at", "2015-03-18 08:36:36.263138"], ["updated_at", "2015-03-18 08:36:36.263138"]]
+  [1m[35m (96.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "minima"], ["created_at", "2015-03-18 08:36:36.363941"], ["updated_at", "2015-03-18 08:36:36.363941"]]
+  [1m[36m (97.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "quidem"], ["created_at", "2015-03-18 08:36:36.465287"], ["updated_at", "2015-03-18 08:36:36.465287"]]
+  [1m[35m (108.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "harum"], ["created_at", "2015-03-18 08:36:36.577849"], ["updated_at", "2015-03-18 08:36:36.577849"]]
+  [1m[36m (119.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "sunt"], ["created_at", "2015-03-18 08:36:36.701495"], ["updated_at", "2015-03-18 08:36:36.701495"]]
+  [1m[35m (130.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "culpa"], ["created_at", "2015-03-18 08:36:36.836259"], ["updated_at", "2015-03-18 08:36:36.836259"]]
+  [1m[36m (141.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "et"], ["created_at", "2015-03-18 08:36:36.982164"], ["updated_at", "2015-03-18 08:36:36.982164"]]
+  [1m[35m (130.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "itaque"], ["created_at", "2015-03-18 08:36:37.116706"], ["updated_at", "2015-03-18 08:36:37.116706"]]
+  [1m[36m (120.5ms)[0m  [1mcommit transaction[0m
+  [1m[36m (104.9ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.4ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (311.3ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (144.7ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (156.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (130.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (134.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (122.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (123.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (134.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (134.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (145.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (132.0ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (123.9ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (122.2ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (223.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (133.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (122.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (124.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (100.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (101.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (112.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "laudantium"], ["created_at", "2015-03-18 08:36:57.611040"], ["updated_at", "2015-03-18 08:36:57.611040"]]
+  [1m[35m (117.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "quas"], ["created_at", "2015-03-18 08:36:57.733151"], ["updated_at", "2015-03-18 08:36:57.733151"]]
+  [1m[36m (118.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "inventore"], ["created_at", "2015-03-18 08:36:57.856427"], ["updated_at", "2015-03-18 08:36:57.856427"]]
+  [1m[35m (119.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "eum"], ["created_at", "2015-03-18 08:36:57.980175"], ["updated_at", "2015-03-18 08:36:57.980175"]]
+  [1m[36m (130.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "nulla"], ["created_at", "2015-03-18 08:36:58.114876"], ["updated_at", "2015-03-18 08:36:58.114876"]]
+  [1m[35m (131.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "quod"], ["created_at", "2015-03-18 08:36:58.250256"], ["updated_at", "2015-03-18 08:36:58.250256"]]
+  [1m[36m (110.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "eum"], ["created_at", "2015-03-18 08:36:58.363837"], ["updated_at", "2015-03-18 08:36:58.363837"]]
+  [1m[35m (97.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "et"], ["created_at", "2015-03-18 08:36:58.464943"], ["updated_at", "2015-03-18 08:36:58.464943"]]
+  [1m[36m (108.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "rem"], ["created_at", "2015-03-18 08:36:58.577758"], ["updated_at", "2015-03-18 08:36:58.577758"]]
+  [1m[35m (119.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "aut"], ["created_at", "2015-03-18 08:36:58.701546"], ["updated_at", "2015-03-18 08:36:58.701546"]]
+  [1m[36m (119.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "voluptas"], ["created_at", "2015-03-18 08:36:58.824976"], ["updated_at", "2015-03-18 08:36:58.824976"]]
+  [1m[35m (130.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "natus"], ["created_at", "2015-03-18 08:36:58.959751"], ["updated_at", "2015-03-18 08:36:58.959751"]]
+  [1m[36m (130.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "reiciendis"], ["created_at", "2015-03-18 08:36:59.094514"], ["updated_at", "2015-03-18 08:36:59.094514"]]
+  [1m[35m (131.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "dolorum"], ["created_at", "2015-03-18 08:36:59.230833"], ["updated_at", "2015-03-18 08:36:59.230833"]]
+  [1m[36m (142.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "explicabo"], ["created_at", "2015-03-18 08:36:59.377295"], ["updated_at", "2015-03-18 08:36:59.377295"]]
+  [1m[35m (108.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "non"], ["created_at", "2015-03-18 08:36:59.489822"], ["updated_at", "2015-03-18 08:36:59.489822"]]
+  [1m[36m (130.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "hic"], ["created_at", "2015-03-18 08:36:59.624676"], ["updated_at", "2015-03-18 08:36:59.624676"]]
+  [1m[35m (141.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "architecto"], ["created_at", "2015-03-18 08:36:59.770776"], ["updated_at", "2015-03-18 08:36:59.770776"]]
+  [1m[36m (152.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "voluptatum"], ["created_at", "2015-03-18 08:36:59.927843"], ["updated_at", "2015-03-18 08:36:59.927843"]]
+  [1m[35m (164.1ms)[0m  commit transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "reprehenderit"], ["created_at", "2015-03-18 08:37:00.096935"], ["updated_at", "2015-03-18 08:37:00.096935"]]
+  [1m[36m (109.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "authors" ("name", "email", "city", "adress", "birthday", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lloyd Klocko"], ["email", "martina@howell.info"], ["city", "Bahringerbury"], ["adress", "45449 Jalon Squares"], ["birthday", "1996-01-09"], ["created_at", "2015-03-18 08:37:00.225418"], ["updated_at", "2015-03-18 08:37:00.225418"]]
+  [1m[35m (105.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (129.5ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (110.7ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (113.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.0ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (141.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (111.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (122.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (112.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (112.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (113.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36m (111.4ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "city" varchar, "adress" varchar, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author_name" varchar, "comment_txt" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (134.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.4ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (133.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (111.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (114.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (154.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318073946')
+  [1m[36m (112.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060259')[0m
+  [1m[35m (112.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060537')
+  [1m[36m (134.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318060458')[0m
+  [1m[35m (123.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150318060036')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "saepe"], ["created_at", "2015-03-18 08:44:07.200909"], ["updated_at", "2015-03-18 08:44:07.200909"]]
+  [1m[35m (123.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "dignissimos"], ["created_at", "2015-03-18 08:44:07.329036"], ["updated_at", "2015-03-18 08:44:07.329036"]]
+  [1m[36m (109.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "molestiae"], ["created_at", "2015-03-18 08:44:07.443108"], ["updated_at", "2015-03-18 08:44:07.443108"]]
+  [1m[35m (108.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "dolorum"], ["created_at", "2015-03-18 08:44:07.555279"], ["updated_at", "2015-03-18 08:44:07.555279"]]
+  [1m[36m (119.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "aut"], ["created_at", "2015-03-18 08:44:07.679065"], ["updated_at", "2015-03-18 08:44:07.679065"]]
+  [1m[35m (119.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "ratione"], ["created_at", "2015-03-18 08:44:07.802582"], ["updated_at", "2015-03-18 08:44:07.802582"]]
+  [1m[36m (119.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "optio"], ["created_at", "2015-03-18 08:44:07.925782"], ["updated_at", "2015-03-18 08:44:07.925782"]]
+  [1m[35m (130.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "molestiae"], ["created_at", "2015-03-18 08:44:08.060824"], ["updated_at", "2015-03-18 08:44:08.060824"]]
+  [1m[36m (130.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "eligendi"], ["created_at", "2015-03-18 08:44:08.195712"], ["updated_at", "2015-03-18 08:44:08.195712"]]
+  [1m[35m (118.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "vel"], ["created_at", "2015-03-18 08:44:08.318505"], ["updated_at", "2015-03-18 08:44:08.318505"]]
+  [1m[36m (119.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "fugiat"], ["created_at", "2015-03-18 08:44:08.442379"], ["updated_at", "2015-03-18 08:44:08.442379"]]
+  [1m[35m (110.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "maxime"], ["created_at", "2015-03-18 08:44:08.556710"], ["updated_at", "2015-03-18 08:44:08.556710"]]
+  [1m[36m (119.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "placeat"], ["created_at", "2015-03-18 08:44:08.680222"], ["updated_at", "2015-03-18 08:44:08.680222"]]
+  [1m[35m (119.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "mollitia"], ["created_at", "2015-03-18 08:44:08.803462"], ["updated_at", "2015-03-18 08:44:08.803462"]]
+  [1m[36m (119.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "voluptatem"], ["created_at", "2015-03-18 08:44:08.926873"], ["updated_at", "2015-03-18 08:44:08.926873"]]
+  [1m[35m (119.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "numquam"], ["created_at", "2015-03-18 08:44:09.050586"], ["updated_at", "2015-03-18 08:44:09.050586"]]
+  [1m[36m (130.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "est"], ["created_at", "2015-03-18 08:44:09.185324"], ["updated_at", "2015-03-18 08:44:09.185324"]]
+  [1m[35m (141.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "numquam"], ["created_at", "2015-03-18 08:44:09.331449"], ["updated_at", "2015-03-18 08:44:09.331449"]]
+  [1m[36m (130.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tagname", "officiis"], ["created_at", "2015-03-18 08:44:09.465847"], ["updated_at", "2015-03-18 08:44:09.465847"]]
+  [1m[35m (120.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tags" ("tagname", "created_at", "updated_at") VALUES (?, ?, ?)  [["tagname", "qui"], ["created_at", "2015-03-18 08:44:09.591316"], ["updated_at", "2015-03-18 08:44:09.591316"]]
+  [1m[36m (107.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authors" ("name", "email", "city", "adress", "birthday", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Winston Schamberger"], ["email", "billie.romaguera@heathcote.info"], ["city", "South Blanchebury"], ["adress", "3761 O'Hara Square"], ["birthday", "1987-10-16"], ["created_at", "2015-03-18 08:44:09.717944"], ["updated_at", "2015-03-18 08:44:09.717944"]]
+  [1m[35m (105.8ms)[0m  commit transaction

@@ -12,10 +12,10 @@ end
   puts "Author #{i}"
   author = FactoryGirl.create(:author)
   rand(1..10).times do
-    post = FactoryGirl.create(:post, author:author)
+    post = FactoryGirl.create(:post, author: author)
     post.tags << [Tag.all.sample(3)]
     rand(0..10).times do
-      comment = FactoryGirl.create(:comment, post:post)
+      comment = FactoryGirl.create(:comment, post: post)
     end
   end
 end

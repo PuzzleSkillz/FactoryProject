@@ -15,9 +15,9 @@ FactoryGirl.define do  factory :user do
     text  {Faker::Lorem.sentence(3, true)}
   end
   factory :comment do
-    article
+    post
     username {Faker::Name.name }
-    comment  {Faker::Lorem.sentence(2, true)}
+    comment_txt  {Faker::Lorem.sentence(2, true)}
   end
   factory :tag do
     tagname {Faker::Lorem.word}
